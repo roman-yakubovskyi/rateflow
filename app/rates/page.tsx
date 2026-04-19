@@ -32,7 +32,7 @@ export default function RatesPage() {
         setIsError(null);
 
         const data = await latestRates(baseCurrency);
-        setRates((data));
+        setRates(data);
       } catch {
         setIsError('Opps... Try again!');
       } finally {
@@ -47,7 +47,7 @@ export default function RatesPage() {
     .filter(([key]) => key !== baseCurrency && key.toLowerCase().includes(filter))
     .map(([key, value]) => ({
       key,
-      value: (1 / value).toFixed(2),
+      value: 1 / value,
     }));
 
   return (
